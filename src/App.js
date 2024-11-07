@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import Navbar from './components/Navbar';
+import Intro from './components/Intro';
+import Card from './components/Card';
+import data from './data';
+
+export default function App() {
+
+
+  const cards=data.map((item) => {
+    return (
+      <Card
+            key = {item.id}
+            item = {item}
+            // img={item.coverImg}
+            // rating={item.stats.rating}
+            // reviewCount={item.stats.reviewCount}
+            // price = {item.price}
+            // location = {item.location}
+            // title={item.title}
+            // openSpots = {item.openSpots}
+             />
+    )
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Intro />
+      <section className="cards">
+        {cards}
+      </section>
     </div>
   );
 }
 
-export default App;
+// const cards= data.map((item)=>{
+//   return( <Card img={item.coverImg} alt="katie-zaferes"
+//           rating={item.stats.rating}
+//           reviewCount={item.stats.reviewCount}
+//           country={item.location}
+//           title={item.title} price={item.price} /> )
+//  });
